@@ -14,21 +14,46 @@
 window.addEventListener('DOMContentLoaded', (event) => {
 
 
-const card = document.getElementById("card");
 
+
+function makeCards() {
+let img = document.createElement("img");
+  img.src = './assets/pom.jpg'
+const main = document.getElementById("main")
+const pupCard = document.createElement("DIV");
+  pupCard.setAttribute("class", "card")
+  pupCard.setAttribute("id", "pupCard")
+const statsCard = document.createElement("DIV")
+  statsCard.setAttribute("class", "card")
+  statsCard.setAttribute("id", "statsCard")
+main.appendChild(statsCard)
+main.appendChild(pupCard)
+pupCard.appendChild(img)
+  createButtons()
+  displayStats()
+
+}
 
 function displayStats(){
+const statsCard = document.getElementById("statsCard")
   let name = document.createElement("P") /// innerHTML of P should be "weight + {function that determines weight}"
+    name.innerHTML = "My name is:"
   let weight = document.createElement("P")
+    weight.innerHTML = "I weigh..."
   let happiness = document.createElement("P")
+    happiness.innerHTML= "My happiness level is:"
+    statsCard.appendChild(name);
+    statsCard.appendChild(weight);
+    statsCard.appendChild(happiness);
 }
 
 
 function createButtons() {
-
+  const pupCard = document.getElementById("pupCard")
   let btn = document.createElement("BUTTON");
   btn.innerHTML = "Feed me!"
-  card.appendChild(btn);
+  btn.setAttribute("class", "btn btn-primary")
+  pupCard.appendChild(btn);
 }
 
 
@@ -69,6 +94,9 @@ function checkWeightAndHappinessBeforeUpddating() {
   petInfo['weight'] = 0
   }
 }
-createButtons()
 
-});
+makeCards()
+
+
+
+});  ///domcontentloaded close

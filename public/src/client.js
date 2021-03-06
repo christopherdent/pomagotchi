@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   // }
 
 
-function makeCards() {
+makeCards = () => {
   let img = document.createElement("IMG");
     img.src = './assets/pom.jpg'
   const main = document.getElementById("main")
@@ -40,7 +40,7 @@ function makeCards() {
     displayStats()
 }
 
-function displayStats(){
+displayStats = () => {
 const statsCard = document.getElementById("statsCard")
   let name = document.createElement("P") /// innerHTML of P should be "weight + {function that determines weight}"
     name.innerHTML = `My name is: ${petInfo.name}`
@@ -54,7 +54,7 @@ const statsCard = document.getElementById("statsCard")
 }
 
 
-function createButtons() {
+createButtons = () =>  {
   const pupCard = document.getElementById("pupCard")
   const br = document.createElement("BR");
 
@@ -65,6 +65,7 @@ function createButtons() {
   let feedButton = document.createElement("BUTTON");
     feedButton.innerHTML = "Feed me!"
     feedButton.setAttribute("class", "btn btn-primary")
+
     pupCard.appendChild(feedButton);
     pupCard.innerHTML += '  ';
   let playButton = document.createElement("BUTTON");
@@ -77,11 +78,9 @@ function createButtons() {
     exerciseButton.setAttribute("class", "btn btn-danger")
     pupCard.appendChild(exerciseButton);
 
+    feedButton.addEventListener("click", clickedFeedButton)
 
 }
-
-
-
 
 
 
@@ -89,24 +88,25 @@ function checkAndUpdatePetInfoInHtml() {
 //click buttons
 }
 
-function clickedTreatButton(){
+clickedFeedButton = () => {
+  console.log("Feeding pet")
   petInfo['happiness'] += 1
   petInfo['weight'] += 1
 }
 
 
-function clickedPlayButton(){
+clickedPlayButton = () => {
   petInfo['happiness'] += 1
   petInfo['weight'] -= 1
 }
 
-function clickedExerciseButton() {
+clickedExerciseButton = () => {
     petInfo['weight'] -= 1
     petInfo['happiness'] -= 1
   checkAndUpdatePetInfoInHtml();
 }
 
-function checkWeightAndHappinessBeforeUpddating() {
+checkWeightAndHappinessBeforeUpddating = () => {
   if (petInfo['weight'] < 1) {
   petInfo['weight'] = 0
   }

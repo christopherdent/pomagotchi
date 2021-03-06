@@ -53,21 +53,28 @@ const statsCard = document.getElementById("statsCard")
     statsCard.appendChild(happiness);
 }
 
+clickedFeedButton = () => {
+
+  console.log("Feeding pet")
+  petInfo['happiness'] += 1
+  petInfo['weight'] += 1
+}
+
 
 createButtons = () =>  {
   const pupCard = document.getElementById("pupCard")
   const br = document.createElement("BR");
-
-  // for ( var i =0; i < 20; i++ ) { pupCard.appendChild(br) }
   pupCard.appendChild(br)
-
 
   let feedButton = document.createElement("BUTTON");
     feedButton.innerHTML = "Feed me!"
     feedButton.setAttribute("class", "btn btn-primary")
+    feedButton.id = "feed"
 
     pupCard.appendChild(feedButton);
+    feedButton.addEventListener("click", clickedFeedButton);
     pupCard.innerHTML += '  ';
+
   let playButton = document.createElement("BUTTON");
     playButton.innerHTML = "Play With Me!"
     playButton.setAttribute("class", "btn btn-success")
@@ -78,7 +85,7 @@ createButtons = () =>  {
     exerciseButton.setAttribute("class", "btn btn-danger")
     pupCard.appendChild(exerciseButton);
 
-    feedButton.addEventListener("click", clickedFeedButton)
+
 
 }
 
@@ -88,11 +95,6 @@ function checkAndUpdatePetInfoInHtml() {
 //click buttons
 }
 
-clickedFeedButton = () => {
-  console.log("Feeding pet")
-  petInfo['happiness'] += 1
-  petInfo['weight'] += 1
-}
 
 
 clickedPlayButton = () => {
@@ -106,7 +108,7 @@ clickedExerciseButton = () => {
   checkAndUpdatePetInfoInHtml();
 }
 
-checkWeightAndHappinessBeforeUpddating = () => {
+checkWeightAndHappinessBeforeUpdating = () => {
   if (petInfo['weight'] < 1) {
   petInfo['weight'] = 0
   }

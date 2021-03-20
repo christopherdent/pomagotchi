@@ -18,9 +18,16 @@ let petInfo = {
     "happiness": 0
   }
    
+  let input = prompt("Please name your pom", "Chilito"); 
    
-   
-   
+  
+  const addName = (input) => {
+    let name = document.getElementById("nameField");
+    name.innerHTML = `My name is ${input}`;
+  }
+
+
+
    const makeCards = () => {
      let img = document.createElement("IMG");
        img.src = './assets/pom.jpg'
@@ -127,14 +134,16 @@ let petInfo = {
       let weight = document.getElementById("weightField");
       let happiness = document.getElementById("happinessField");
       weight.innerHTML = `I weigh ${petInfo['weight'] -= 1}`;  
-      happiness.innerHTML = `My happiness level is ${petInfo['happiness'] -= 2}`;
+      happiness.innerHTML = `My happiness level is ${petInfo['happiness'] -= 10}`;
 
     }
 
     
      
 window.addEventListener('DOMContentLoaded', (event) => {
+      
       makeCards()
+      addName(input)
     //   displayStats()
     //   createButtons()
     }

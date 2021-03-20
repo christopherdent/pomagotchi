@@ -82,12 +82,8 @@ let petInfo = {
   ///create and attribute play button
         let playButton = document.createElement("button");
         playButton.setAttribute("class", "btn btn-success")
-
         playButton.innerHTML = "Play With Me!"
-
-        playButton.addEventListener('click', function(event) {
-            console.log("playing ");
-        })
+        playButton.addEventListener('click', onPlayClick);
         pupCard.appendChild(playButton);
         
  
@@ -96,10 +92,7 @@ let petInfo = {
         let exerciseButton = document.createElement("button") 
         exerciseButton.setAttribute("class", "btn btn-danger")
         exerciseButton.innerHTML = "Make Me Exercise :("
-        exerciseButton.addEventListener('click', function(event){
-            console.log("exercising");
-        })
-
+        exerciseButton.addEventListener('click', onExerciseClick);
         pupCard.appendChild(exerciseButton);
                
         
@@ -119,13 +112,22 @@ let petInfo = {
 
 
     const onPlayClick = () => {
-  
+      console.log("playing");
+      let weight = document.getElementById("weightField");
+      let happiness = document.getElementById("happinessField");
+      // weight.innerHTML = `I weigh ${petInfo['weight'] += 2}`;  decrement 0 for the first three plays but 1 after that.  how?
+      happiness.innerHTML = `My happiness level is ${petInfo['happiness'] += 5}`;
     }
 
 
 
 
     const onExerciseClick = () => {
+      console.log("exercising");
+      let weight = document.getElementById("weightField");
+      let happiness = document.getElementById("happinessField");
+      weight.innerHTML = `I weigh ${petInfo['weight'] -= 1}`;  
+      happiness.innerHTML = `My happiness level is ${petInfo['happiness'] -= 2}`;
 
     }
 

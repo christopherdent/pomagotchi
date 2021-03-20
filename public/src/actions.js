@@ -1,4 +1,6 @@
 class Actions {
+ 
+
 
   clickPlayButton = () => {
     petInfo['happiness'] += 1

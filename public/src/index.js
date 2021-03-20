@@ -11,12 +11,12 @@
 // });
 
 
-
-    petInfo = {
-     name: '',
-     weight: '',
-     happiness: ''
-   }
+ 
+let petInfo = {
+    "name" : "Doge",
+    "weight" : 1,
+    "happiness": 0
+  }
    
    
    
@@ -41,35 +41,34 @@
    
    const displayStats = () => {
    const statsCard = document.getElementById("statsCard")
-     let name = document.createElement("P") /// innerHTML of P should be "weight + {function that determines weight}"
-       name.innerHTML = `My name is: ${this.petInfo.name}`
+     let name = document.createElement("P") 
+      name.setAttribute('id', 'nameField')
+       name.innerHTML = `My name is: ${petInfo.name}`  ///where does it get this info in Battle Ships?  From the DB / array.  For all these stats it would mae sense to fetch from a db.
      let weight = document.createElement("P")
-       weight.innerHTML = `I weigh ${this.petInfo.weight}`
-     let happiness = document.createElement("P")
-       happiness.innerHTML= `My happiness level is ${this.petInfo.happiness}`
+       weight.innerHTML = `I weigh ${petInfo.weight}`  /// innerHTML of P should be "weight + {function that determines weight}"
+       weight.setAttribute('id', 'weightField')
+       let happiness = document.createElement("P")
+       happiness.innerHTML= `My happiness level is ${petInfo.happiness}`
+       happiness.setAttribute('id', 'happinessField')
        statsCard.appendChild(name);
        statsCard.appendChild(weight);
        statsCard.appendChild(happiness);
    }
    
    
+
+
+
+
+
+
    const createButtons = () =>  {
      const pupCard = document.getElementById("pupCard")
      const br = document.createElement("BR");
+     
      pupCard.appendChild(br)
    
-    //  let feedButton = document.createElement('button')
-    //  feedButton.innerHTML = "Feed me!!"
-    //  feedButton.setAttribute("class", "btn btn-primary")
-    // feedButton.setAttribute("id", 'feed')
-      
-    //  feedButton.addEventListener("click", function () {
-    //     alert('click');
-    // });
-
-    //  pupCard.appendChild(feedButton);
-
-     window.onload = function (){
+   //  window.onload = function (){
            ///create and attribute feed button
         let feedButton = document.createElement('button');
         feedButton.setAttribute("class", "btn btn-primary")
@@ -78,52 +77,58 @@
         pupCard.appendChild(feedButton);
 
 
-          function onFeedClick(){
-            console.log("feeding ");
-        }
+
+
   ///create and attribute play button
         let playButton = document.createElement("button");
         playButton.setAttribute("class", "btn btn-success")
 
         playButton.innerHTML = "Play With Me!"
-        playButton.addEventListener('click', onPlayClick);
-        pupCard.appendChild(playButton);
-        // pupCard.innerHTML += '  ';
 
-        function onPlayClick(){
+        playButton.addEventListener('click', function(event) {
             console.log("playing ");
-        }
+        })
+        pupCard.appendChild(playButton);
         
-
+ 
+        
         ///create and attribute exercise button
         let exerciseButton = document.createElement("button") 
         exerciseButton.setAttribute("class", "btn btn-danger")
         exerciseButton.innerHTML = "Make Me Exercise :("
-        exerciseButton.addEventListener('click', onExerciseClick);
+        exerciseButton.addEventListener('click', function(event){
+            console.log("exercising");
+        })
+
         pupCard.appendChild(exerciseButton);
-        function onExerciseClick(){
-            console.log("exercising ");
-        }
+               
         
+    }
+//}
 
 
+ 
+    const onFeedClick = () => {
+      console.log("feeding ");
+      let weight = document.getElementById("weightField");
+      let happiness = document.getElementById("happinessField");
+      weight.innerHTML = `I weigh ${petInfo['weight'] += 2}`;
+      happiness.innerHTML = `My happiness is ${petInfo['happiness'] += 1}`;
+    }
+   
+
+
+    const onPlayClick = () => {
+  
     }
 
 
-   }
 
-   const tryme = () =>{
-        
-       console.log('do i fcking work now')
-   }
-   
-    
-   
-   
-   
-   const mouseDown = () => {
-     document.getElementById("feed").innerHTML = "The mouse button is held down.";
-   }
+
+    const onExerciseClick = () => {
+
+    }
+
     
      
 window.addEventListener('DOMContentLoaded', (event) => {

@@ -136,11 +136,14 @@ let petInfo = {
       console.log("exercising");
       let weight = document.getElementById("weightField");
       let happiness = document.getElementById("happinessField");
+      let age = document.getElementById("ageField");
       if (petInfo['weight'] > 1) {
       weight.innerHTML = `I weigh ${petInfo['weight'] -= 1}`;  
+      } else if (petInfo['age' > 6]) {
+        age.innerHTML = `I am ${petInfo['age'] -= 1} years old!`
       }
       happiness.innerHTML = `My happiness level is ${petInfo['happiness'] -= 3}`;
-       
+      
 
     }
 

@@ -136,14 +136,15 @@ let petInfo = {
       console.log("exercising");
       let weight = document.getElementById("weightField");
       let happiness = document.getElementById("happinessField");
-      if (petInfo['weight'] < 1) {
+      if (petInfo['weight'] > 1) {
       weight.innerHTML = `I weigh ${petInfo['weight'] -= 1}`;  
       }
-      happiness.innerHTML = `My happiness level is ${petInfo['happiness'] -= 5}`;
+      happiness.innerHTML = `My happiness level is ${petInfo['happiness'] -= 3}`;
+       
 
     }
 
-    function timer(){
+    function ager(){
       let i = 0;
       let age = document.getElementById("ageField");
       setInterval(function(){
@@ -154,10 +155,13 @@ let petInfo = {
         if(i > 30){
           i = 0;
         }
-      },1000);  //60 seoconds.  every 60 seconds the dog gets a month old.  
+      },30000);  //60 seoconds.  every 60 seconds the dog gets a month old.  
    }
 
 
+   const timer = () => {
+    ////this will be a function just to keep track of real time for the user.  
+   }
 
 
      
@@ -165,7 +169,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
       
       makeCards()
       addName(input)
-      timer() 
+      ager() 
     //   displayStats()
     //   createButtons()
     }

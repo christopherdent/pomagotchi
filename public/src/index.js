@@ -63,7 +63,7 @@ let petInfo = {
        happiness.innerHTML= `My happiness level is ${petInfo.happiness}`
        happiness.setAttribute('id', 'happinessField')
     let age = document.createElement("P")
-      age.innerHTML = `I am ${petInfo.age} years old.`
+      age.innerHTML = `I am ${petInfo.age} months old.`
       age.setAttribute('id', 'ageField')
        statsCard.appendChild(name);
        statsCard.appendChild(weight);
@@ -140,7 +140,7 @@ let petInfo = {
       if (petInfo['weight'] > 1) {
       weight.innerHTML = `I weigh ${petInfo['weight'] -= 1}`;  
       } else if (petInfo['age' > 6]) {
-        age.innerHTML = `I am ${petInfo['age'] -= 1} years old!`
+        age.innerHTML = `I am ${petInfo['age'] -= 1} months old!`
       }
       happiness.innerHTML = `My happiness level is ${petInfo['happiness'] -= 3}`;
       
@@ -154,7 +154,7 @@ let petInfo = {
         i++;
         // document.getElementById("show").innerHTML = i;
         console.log(i)
-        ageField.innerHTML = `I am ${i} years old!`
+        ageField.innerHTML = `I am ${i} months old!`
         if(i > 30){
           i = 0;
         }

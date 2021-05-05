@@ -74,6 +74,7 @@ let petInfo = {
    
    const createButtons = () =>  {
      const pupCard = document.getElementById("pupCard")
+     const main = document.getElementById("main")
      const br = document.createElement("BR");
      
      pupCard.appendChild(br)
@@ -104,12 +105,20 @@ let petInfo = {
         exerciseButton.innerHTML = "Make Me Exercise :("
         exerciseButton.addEventListener('click', onExerciseClick);
         pupCard.appendChild(exerciseButton);
-               
+
+        //create save button  (save button can be the thing that fetches)
+        let saveButton = document.createElement("button")
+        saveButton.setAttribute("class", "btn btn-dark")
+        saveButton.innerHTML = "Save Your Pom"
+        saveButton.addEventListener('click', onSaveClick); //save click is going to do a fetch request.  //this line is causing the statsbox to disappear?
         
+        main.appendChild(saveButton)
     }
 //}
 
-
+    const onSaveClick = () => {
+      console.log("saving")
+    }
  
     const onFeedClick = () => {
       console.log("feeding ");

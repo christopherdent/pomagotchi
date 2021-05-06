@@ -117,6 +117,20 @@ let petInfo = {
         main.appendChild(saveButton)
     
     }
+
+    
+    function ager(age){
+      let i = age;
+      let ageField = document.getElementById("ageField");
+      setInterval(function(){
+        i++;
+        console.log(i)
+        ageField.innerHTML = `I am ${i} months old!`
+        if(i > 30){
+          i = 0;
+        }
+      },30000);  //60 seoconds.  every 60 seconds the dog gets a month old.  
+   }
  
 const getPets = () => {
   let nameField = document.getElementById("nameField")
@@ -131,6 +145,7 @@ const getPets = () => {
     weightField.innerHTML = `I weigh: ${pet.weight}`
     happinessField.innerHTML = `My happiness level is: ${pet.happiness}`
     ageField.innerHTML = `I am ${pet.age} months old`
+    ager(pet.age)
   })  
  }
 
@@ -188,19 +203,6 @@ const getPets = () => {
 
     }
 
-    function ager(){
-      let i = 0;
-      let age = document.getElementById("ageField");
-      setInterval(function(){
-        i++;
-        // document.getElementById("show").innerHTML = i;
-        console.log(i)
-        ageField.innerHTML = `I am ${i} months old!`
-        if(i > 30){
-          i = 0;
-        }
-      },30000);  //60 seoconds.  every 60 seconds the dog gets a month old.  
-   }
 
 
    const timer = () => {
@@ -215,7 +217,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
       makeCards()
       getPets()
-      ager() 
+      // ager() 
 
     }
 )

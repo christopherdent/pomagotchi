@@ -10,16 +10,18 @@
 
 // });
 
-
+const endPoint = "http://localhost:3000/api/v1/pets"
  
+
+///petInfo should be a class constructor eventually 
 let petInfo = {
-    "name" : "Doge",
+    "name" : "dog",
     "weight" : 1,
     "happiness": 0,
     "age": 0
   }
    
-  let input = prompt("Please name your pom", "Chilito"); 
+  // let input = prompt("Please name your pom", "Chilito"); 
    
   
   const addName = (input) => {
@@ -55,12 +57,12 @@ let petInfo = {
    const statsCard = document.getElementById("statsCard")
      let name = document.createElement("P") 
       name.setAttribute('id', 'nameField')
-       name.innerHTML = `My name is: ${petInfo.name}`  ///where does it get this info in Battle Ships?  From the DB / array.  For all these stats it would mae sense to fetch from a db.
+      //  name.innerHTML = `My name is: ${petInfo.name}`  ///where does it get this info in Battle Ships?  From the DB / array.  For all these stats it would mae sense to fetch from a db.
      let weight = document.createElement("P")
-       weight.innerHTML = `I weigh ${petInfo.weight}`  /// innerHTML of P should be "weight + {function that determines weight}"
+      //  weight.innerHTML = `I weigh ${petInfo.weight}`  /// innerHTML of P should be "weight + {function that determines weight}"
        weight.setAttribute('id', 'weightField')
     let happiness = document.createElement("P")
-       happiness.innerHTML= `My happiness level is ${petInfo.happiness}`
+      //  happiness.innerHTML= `My happiness level is ${petInfo.happiness}`
        happiness.setAttribute('id', 'happinessField')
     let age = document.createElement("P")
       age.innerHTML = `I am ${petInfo.age} months old.`
@@ -79,8 +81,8 @@ let petInfo = {
      
      pupCard.appendChild(br)
    
-   //  window.onload = function (){
-           ///create and attribute feed button
+ 
+           ///create   feed button
         let feedButton = document.createElement('button');
         feedButton.setAttribute("class", "btn btn-primary")
         feedButton.innerHTML = "FEED ME";
@@ -90,7 +92,7 @@ let petInfo = {
 
 
 
-  ///create and attribute play button
+  ///create   play button
         let playButton = document.createElement("button");
         playButton.setAttribute("class", "btn btn-success")
         playButton.innerHTML = "Play With Me!"
@@ -99,7 +101,7 @@ let petInfo = {
         
  
         
-        ///create and attribute exercise button
+        ///create   exercise button
         let exerciseButton = document.createElement("button") 
         exerciseButton.setAttribute("class", "btn btn-danger")
         exerciseButton.innerHTML = "Make Me Exercise :("
@@ -113,11 +115,41 @@ let petInfo = {
         saveButton.addEventListener('click', onSaveClick); //save click is going to do a fetch request.  //this line is causing the statsbox to disappear?
         
         main.appendChild(saveButton)
+    
     }
-//}
+ 
+const getPets = () => {
+  let nameField = document.getElementById("nameField")
+  let weightField = document.getElementById("weightField")
+  let happinessField = document.getElementById("happinessField")
+  let ageField = document.getElementById("ageField")
+  fetch('http://localhost:3000/api/v1/pets/1')    ///grabbing one pet.  In the future you'll use interpolation to grab the RIGHT pet for the RIGHT owner.  For now we are just grabbing pet 1, calvin.
+  .then(response => response.json())
+  // .then(pet => console.log(pet.name))  
+  .then(pet => {
+    nameField.innerHTML = `My name is: ${pet.name}`
+    weightField.innerHTML = `I weigh: ${pet.weight}`
+    happinessField.innerHTML = `My happiness level is: ${pet.happiness}`
+    ageField.innerHTML = `I am ${pet.age} months old`
+  })  
+ }
 
     const onSaveClick = () => {
       console.log("saving")
+
+    //   return fetch('http://localhost:3000/pets/', {
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'Accept': 'application/json'
+    //   },
+    //   method: 'POST',
+    //   body: JSON.stringify(data)
+    // })
+    // .then(response => response.json())
+    // .then(pet =>
+    //   // console.log(dinosaur)
+  
+    //   )
     }
  
     const onFeedClick = () => {
@@ -175,14 +207,15 @@ let petInfo = {
     ////this will be a function just to keep track of real time for the user.  
    }
 
+ 
 
      
 window.addEventListener('DOMContentLoaded', (event) => {
       
+
       makeCards()
-      addName(input)
+      getPets()
       ager() 
-    //   displayStats()
-    //   createButtons()
+
     }
 )

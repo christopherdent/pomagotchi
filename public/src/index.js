@@ -1,223 +1,31 @@
+
+
+
+// let newPet 
+// newPet = new Pet()
 // window.addEventListener('DOMContentLoaded', (event) => {
-
-// const newClient = new Client()
-
-// newClient.makeCards()
-// newClient.displayStats()
-// newClient.createButtons()
-
-
-
-// });
-
-const endPoint = "http://localhost:3000/api/v1/pets"
+//   makeCards()
+//   console.log('app is loaded')
+//   newPet.getPets()
+//   }
+// )
  
 
-///petInfo should be a class constructor eventually 
-let petInfo = {
-    "name" : "dog",
-    "weight" : 1,
-    "happiness": 0,
-    "age": 0
-  }
-   
-  // let input = prompt("Please name your pom", "Chilito"); 
-   
-  
-  const addName = (input) => {
-    let name = document.getElementById("nameField");
-    name.innerHTML = `My name is ${input}`;
-  }
 
 
 
-   const makeCards = () => {
-     let img = document.createElement("IMG");
-       img.src = './assets/pom.jpg'
-     const main = document.getElementById("main")
-     const pupCard = document.createElement("DIV");
-       pupCard.setAttribute("class", "card")
-       pupCard.setAttribute("id", "pupCard")
-     const statsCard = document.createElement("DIV")
-       statsCard.setAttribute("class", "card")
-       statsCard.setAttribute("id", "statsCard")
-       
-     main.appendChild(statsCard)
-     main.appendChild(pupCard)
-     pupCard.appendChild(img)
-       createButtons()
-       displayStats()
-   }
-   
+console.log('app is loaded')
+const newGame = new Game()
+const newPet= new Pet() 
 
+document.addEventListener('DOMContentLoaded', function() {
+  newGame.makeCards()
+  newGame.createButtons()
+  newGame.displayStats()
+  newPet.getPet()
 
+})
 
-
-   const displayStats = () => {
-   const statsCard = document.getElementById("statsCard")
-     let name = document.createElement("P") 
-      name.setAttribute('id', 'nameField')
-      //  name.innerHTML = `My name is: ${petInfo.name}`  ///where does it get this info in Battle Ships?  From the DB / array.  For all these stats it would mae sense to fetch from a db.
-     let weight = document.createElement("P")
-      //  weight.innerHTML = `I weigh ${petInfo.weight}`  /// innerHTML of P should be "weight + {function that determines weight}"
-       weight.setAttribute('id', 'weightField')
-    let happiness = document.createElement("P")
-      //  happiness.innerHTML= `My happiness level is ${petInfo.happiness}`
-       happiness.setAttribute('id', 'happinessField')
-    let age = document.createElement("P")
-      age.innerHTML = `I am ${petInfo.age} months old.`
-      age.setAttribute('id', 'ageField')
-       statsCard.appendChild(name);
-       statsCard.appendChild(weight);
-       statsCard.appendChild(happiness);
-       statsCard.appendChild(age);
-   }
-   
-   
-   const createButtons = () =>  {
-     const pupCard = document.getElementById("pupCard")
-     const main = document.getElementById("main")
-     const br = document.createElement("BR");
-     
-     pupCard.appendChild(br)
-   
- 
-           ///create   feed button
-        let feedButton = document.createElement('button');
-        feedButton.setAttribute("class", "btn btn-primary")
-        feedButton.innerHTML = "FEED ME";
-        feedButton.addEventListener('click', onFeedClick);
-        pupCard.appendChild(feedButton);
-
-
-
-
-  ///create   play button
-        let playButton = document.createElement("button");
-        playButton.setAttribute("class", "btn btn-success")
-        playButton.innerHTML = "Play With Me!"
-        playButton.addEventListener('click', onPlayClick);
-        pupCard.appendChild(playButton);
-        
- 
-        
-        ///create   exercise button
-        let exerciseButton = document.createElement("button") 
-        exerciseButton.setAttribute("class", "btn btn-danger")
-        exerciseButton.innerHTML = "Make Me Exercise :("
-        exerciseButton.addEventListener('click', onExerciseClick);
-        pupCard.appendChild(exerciseButton);
-
-        //create save button  (save button can be the thing that fetches)
-        let saveButton = document.createElement("button")
-        saveButton.setAttribute("class", "btn btn-dark")
-        saveButton.innerHTML = "Save Your Pom"
-        saveButton.addEventListener('click', onSaveClick); //save click is going to do a fetch request.  //this line is causing the statsbox to disappear?
-        
-        main.appendChild(saveButton)
-    
-    }
-
-    
-    function ager(age){
-      let i = age;
-      let ageField = document.getElementById("ageField");
-      setInterval(function(){
-        i++;
-        console.log(i)
-        ageField.innerHTML = `I am ${i} months old!`
-        if(i > 30){
-          i = 0;
-        }
-      },30000);  //60 seoconds.  every 60 seconds the dog gets a month old.  
-   }
- 
-const getPets = () => {
-  let nameField = document.getElementById("nameField")
-  let weightField = document.getElementById("weightField")
-  let happinessField = document.getElementById("happinessField")
-  let ageField = document.getElementById("ageField")
-  fetch('http://localhost:3000/api/v1/pets/1')    ///grabbing one pet.  In the future you'll use interpolation to grab the RIGHT pet for the RIGHT owner.  For now we are just grabbing pet 1, calvin.
-  .then(response => response.json())
-  // .then(pet => console.log(pet.name))  
-  .then(pet => {
-    nameField.innerHTML = `My name is: ${pet.name}`
-    weightField.innerHTML = `I weigh: ${pet.weight}`
-    happinessField.innerHTML = `My happiness level is: ${pet.happiness}`
-    ageField.innerHTML = `I am ${pet.age} months old`
-    ager(pet.age)
-  })  
- }
-
-    const onSaveClick = () => {
-      console.log("saving")
-
-    //   return fetch('http://localhost:3000/pets/', {
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'Accept': 'application/json'
-    //   },
-    //   method: 'POST',
-    //   body: JSON.stringify(data)
-    // })
-    // .then(response => response.json())
-    // .then(pet =>
-    //   // console.log(dinosaur)
-  
-    //   )
-    }
- 
-    const onFeedClick = () => {
-      console.log("feeding ");
-      let weight = document.getElementById("weightField");
-      let happiness = document.getElementById("happinessField");
-      weight.innerHTML = `I weigh ${petInfo['weight'] += 2}`;
-      happiness.innerHTML = `My happiness is ${petInfo['happiness'] += 1}`;
-    }
-   
-
-
-    const onPlayClick = () => {
-      console.log("playing");
-      let weight = document.getElementById("weightField");
-      let happiness = document.getElementById("happinessField");
-      // weight.innerHTML = `I weigh ${petInfo['weight'] += 2}`;  decrement 0 for the first three plays but 1 after that.  how?
-      happiness.innerHTML = `My happiness level is ${petInfo['happiness'] += 5}`;
-    }
-
-
-
-
-    const onExerciseClick = () => {
-      console.log("exercising");
-      let weight = document.getElementById("weightField");
-      let happiness = document.getElementById("happinessField");
-      let age = document.getElementById("ageField");
-      if (petInfo['weight'] > 1) {
-      weight.innerHTML = `I weigh ${petInfo['weight'] -= 1}`;  
-      } else if (petInfo['age' > 6]) {
-        age.innerHTML = `I am ${petInfo['age'] -= 1} months old!`
-      }
-      happiness.innerHTML = `My happiness level is ${petInfo['happiness'] -= 3}`;
-      
-
-    }
-
-
-
-   const timer = () => {
-    ////this will be a function just to keep track of real time for the user.  
-   }
 
  
-
-     
-window.addEventListener('DOMContentLoaded', (event) => {
-      
-
-      makeCards()
-      getPets()
-      // ager() 
-
-    }
-)
+   

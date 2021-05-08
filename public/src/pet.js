@@ -39,6 +39,7 @@ constructor(name, weight, happiness){
     let weight = document.getElementById("weightField");
     let happiness = document.getElementById("happinessField");
     weight.innerHTML = `I weigh ${this.weight += 2}`;
+
     happiness.innerHTML = `My happiness is ${this.happiness += 1}`;
    
   }
@@ -62,7 +63,7 @@ constructor(name, weight, happiness){
     let age = document.getElementById("ageField");
     if (this.weight > 1) {
     weight.innerHTML = `I weigh ${this.weight -= 1}`;  
-    } else if (petInfo['age' > 6]) {
+    } else if (this.age > 6) {
       age.innerHTML = `I am ${this.age -= 1} months old!`
     }
     happiness.innerHTML = `My happiness level is ${this.happiness -= 3}`;

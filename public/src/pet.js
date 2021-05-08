@@ -38,10 +38,8 @@ constructor(name, weight, happiness){
     console.log("feeding ");
     let weight = document.getElementById("weightField");
     let happiness = document.getElementById("happinessField");
-    let weightValue = this.weight
-    weightValue += 2
-    weight.innerHTML = `I weigh ${weightValue}`;
-    happiness.innerHTML = `My happiness is ${petInfo['happiness'] += 1}`;
+    weight.innerHTML = `I weigh ${this.weight += 2}`;
+    happiness.innerHTML = `My happiness is ${this.happiness += 1}`;
    
   }
 
@@ -51,7 +49,7 @@ constructor(name, weight, happiness){
     let weight = document.getElementById("weightField");
     let happiness = document.getElementById("happinessField");
     // weight.innerHTML = `I weigh ${petInfo['weight'] += 2}`;  decrement 0 for the first three plays but 1 after that.  how?
-    happiness.innerHTML = `My happiness level is ${petInfo['happiness'] += 5}`;
+    happiness.innerHTML = `My happiness level is ${this.happiness += 5}`;
   }
 
 
@@ -62,12 +60,12 @@ constructor(name, weight, happiness){
     let weight = document.getElementById("weightField");
     let happiness = document.getElementById("happinessField");
     let age = document.getElementById("ageField");
-    if (petInfo['weight'] > 1) {
-    weight.innerHTML = `I weigh ${petInfo['weight'] -= 1}`;  
+    if (this.weight > 1) {
+    weight.innerHTML = `I weigh ${this.weight -= 1}`;  
     } else if (petInfo['age' > 6]) {
-      age.innerHTML = `I am ${petInfo['age'] -= 1} months old!`
+      age.innerHTML = `I am ${this.age -= 1} months old!`
     }
-    happiness.innerHTML = `My happiness level is ${petInfo['happiness'] -= 3}`;
+    happiness.innerHTML = `My happiness level is ${this.happiness -= 3}`;
   }
   
   ager = (age) => {

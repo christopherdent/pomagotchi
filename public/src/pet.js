@@ -5,7 +5,7 @@ class Pet {
           this.name = name;
           this.weight = weight;
           this.happiness = happiness;
-          this.age = '';
+          this.age = age;
       }
   
   
@@ -31,7 +31,7 @@ class Pet {
             happinessField.innerHTML = `My happiness level is: ${this.happiness}`
             ageField.innerHTML = `I am ${this.age} months old. `   ///from here it acurattely reads the age.  ////here you should 
         
-            this.ager(7)
+            this.ager(pet.age)
           })  
          }
   
@@ -80,33 +80,36 @@ class Pet {
       setInterval(function(){
         i++;
         console.log(i)
-        // ageField.innerHTML = `I am ${i} months old!`
+        ageField.innerHTML = `I am ${this.age = i} months old!`
         this.age = i;
         if(i > 30){
           i = 0;
         }
-      },3000);  //60 seoconds.  every 60 seconds the dog gets a month old.  
+      },3000);  //60 seoconds.  every 60 seconds the dog gets a month old. 
+      return newPet.age = age 
    }
   
       
-  //  onSaveClick = () => {
-  //   console.log("saving")
-  //   let configObj = {
-  //    method: "PATCH",
-  //    headers:  {
-  //      "Content-Type": "application/json",
-  //      "Accept": "application/json"
-  //    },
-  //    // body: JSON.stringify(newPet)
-  //    body: JSON.stringify( { pet: newPet } )   
-  //  };
-  
-  //  fetch(`http://localhost:3000/api/v1/pets/${newPet.id}`, configObj)
-  //  .then(r => r.json())
-  //  .then(json => {
-  //    console.log(json)
-  //  })
-  // }
+   onSaveClick = () => {
+    newPet.age = age 
+    console.log("saving")
+    let configObj = {
+     method: "PATCH",
+     headers:  {
+       "Content-Type": "application/json",
+       "Accept": "application/json"
+     },
+     // body: JSON.stringify(newPet)
+     body: JSON.stringify( { pet: newPet } )   
+   };
+   debugger
+   
+   fetch(`http://localhost:3000/api/v1/pets/${newPet.id}`, configObj)
+   .then(r => r.json())
+   .then(json => {
+     console.log(json)
+   })
+  }
   
   
   

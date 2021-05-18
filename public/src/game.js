@@ -84,25 +84,25 @@ class Game {
    
      
    
-       onSaveClick = () => {
+      //  onSaveClick = () => {
 
-         console.log("saving")
-         let configObj = {
-          method: "PATCH",
-          headers:  {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          // body: JSON.stringify(newPet)
-          body: JSON.stringify( { pet: newPet } )   
-        };
+      //    console.log("saving")
+      //    let configObj = {
+      //     method: "PATCH",
+      //     headers:  {
+      //       "Content-Type": "application/json",
+      //       "Accept": "application/json"
+      //     },
+      //     // body: JSON.stringify(newPet)
+      //     body: JSON.stringify( { pet: newPet } )   
+      //   };
 
-        fetch(`http://localhost:3000/api/v1/pets/${newPet.id}`, configObj)
-        .then(r => r.json())
-        .then(json => {
-          console.log(json)
-        })
-       }
+      //   fetch(`http://localhost:3000/api/v1/pets/${newPet.id}`, configObj)
+      //   .then(r => r.json())
+      //   .then(json => {
+      //     console.log(json)
+      //   })
+      //  }
   } 
 
 

@@ -31,7 +31,7 @@ class Pet {
             happinessField.innerHTML = `My happiness level is: ${this.happiness}`
             ageField.innerHTML = `I am ${this.age} months old. `   ///from here it acurattely reads the age.  ////here you should 
         
-            this.ager(pet.age)
+            this.ager(this.age)
           })  
          }
   
@@ -87,9 +87,9 @@ class Pet {
         }
         console.log(`returning ${newPet.age}`)
         return newPet.age
-      },3000);  //60 seoconds.  every 60 seconds the dog gets a month old. 
+      },60000);  //60 seoconds.  every 60 seconds the dog gets a month old. 
       
-      
+      //inaccessable line.  
    }
   
       

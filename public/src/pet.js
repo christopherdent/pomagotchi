@@ -41,17 +41,14 @@ class Pet {
       let weight = document.getElementById("weightField");
       let happiness = document.getElementById("happinessField");
       weight.innerHTML = `I weigh ${this.weight += 2}`;
-  
-      happiness.innerHTML = `My happiness is ${this.happiness += 1}`;
-     
-    }
+        happiness.innerHTML = `My happiness is ${this.happiness += 1}`;
+      }
   
   
     onPlayClick = () => {
       console.log("playing");
       let weight = document.getElementById("weightField");
       let happiness = document.getElementById("happinessField");
-      // weight.innerHTML = `I weigh ${petInfo['weight'] += 2}`;  decrement 0 for the first three plays but 1 after that.  how?
       happiness.innerHTML = `My happiness level is ${this.happiness += 5}`;
     }
   
@@ -74,21 +71,22 @@ class Pet {
 
    
     ager = (age) => {
-        
       let i = age;
-      let ageField = document.getElementById("ageField");
-      setInterval(function(){
+
+      
+        let ageField = document.getElementById("ageField");
+        setInterval(function(){
+        if(i < 144){
         i++;
         console.log(i)
         ageField.innerHTML = `I am ${newPet.age = i} months old!`
-        // this.age = i;
-        if(i > 30){
-          i = 0;
-        }
         console.log(`returning ${newPet.age}`)
         return newPet.age
+      } else{
+        ageField.innerHTML = `I am ${newPet.age = i} months old! (max. age)`
+        return newPet.age 
+      }
       },60000);  //60 seoconds.  every 60 seconds the dog gets a month old. 
-      
       //inaccessable line.  
    }
   

@@ -80,18 +80,21 @@ class Pet {
       setInterval(function(){
         i++;
         console.log(i)
-        ageField.innerHTML = `I am ${this.age = i} months old!`
-        this.age = i;
+        ageField.innerHTML = `I am ${newPet.age = i} months old!`
+        // this.age = i;
         if(i > 30){
           i = 0;
         }
+        console.log(`returning ${newPet.age}`)
+        return newPet.age
       },3000);  //60 seoconds.  every 60 seconds the dog gets a month old. 
-      return newPet.age = age 
+      
+      
    }
   
       
    onSaveClick = () => {
-    newPet.age = age 
+    // newPet.age = this.age 
     console.log("saving")
     let configObj = {
      method: "PATCH",
@@ -102,8 +105,7 @@ class Pet {
      // body: JSON.stringify(newPet)
      body: JSON.stringify( { pet: newPet } )   
    };
-   debugger
-   
+      
    fetch(`http://localhost:3000/api/v1/pets/${newPet.id}`, configObj)
    .then(r => r.json())
    .then(json => {
